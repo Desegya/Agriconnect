@@ -1,5 +1,3 @@
-// src/components/Login.tsx
-import React from 'react';
 import {
   Box,
   Button,
@@ -9,12 +7,21 @@ import {
   Stack,
   Text,
   Link,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-const Login: React.FC = () => {
+const Login = () => {
   return (
-    <Box width="400px" mx="auto" mt="100px" p="5" borderWidth="1px" borderRadius="lg">
-      <Text fontSize="2xl" mb="4" textAlign="center">Login</Text>
+    <Box
+      width="400px"
+      mx="auto"
+      mt="100px"
+      p="5"
+      borderWidth="1px"
+      borderRadius="lg"
+    >
+      <Text fontSize="2xl" mb="4" textAlign="center">
+        Login
+      </Text>
       <form>
         <Stack spacing={4}>
           <FormControl isRequired>
@@ -25,11 +32,16 @@ const Login: React.FC = () => {
             <FormLabel>Password</FormLabel>
             <Input type="password" placeholder="Enter your password" />
           </FormControl>
-          <Button type="submit" colorScheme="teal" width="full">Login</Button>
+          <Button type="submit" colorScheme="teal" width="full">
+            Login
+          </Button>
         </Stack>
       </form>
       <Text mt="4" textAlign="center">
-        Don't have an account? <Link color="teal.500" href="/signup">Sign up</Link>
+        Don't have an account?{" "}
+        <Link color="teal.500" href="/signup">
+          Sign up
+        </Link>
       </Text>
     </Box>
   );

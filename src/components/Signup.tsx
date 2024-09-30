@@ -1,5 +1,5 @@
 // src/components/Signup.tsx
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -13,8 +13,8 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 
-const Signup: React.FC = () => {
-  const [role, setRole] = useState("buyer");
+const Signup = () => {
+  const [role, setRole] = useState(""); // Set initial role to an empty string
 
   return (
     <Box
@@ -64,6 +64,9 @@ const Signup: React.FC = () => {
             <FormControl isRequired>
               <FormLabel>User Role</FormLabel>
               <Select value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="" disabled>
+                  Select role
+                </option>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
                 <option value="admin" disabled>
