@@ -19,7 +19,7 @@ interface Props {
   setSearchTerm: (value: string) => void;
 }
 
-const Navbar = ({searchTerm, setSearchTerm}: Props) => {
+const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
   return (
     <Box>
       {/* Responsive Stack */}
