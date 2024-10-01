@@ -14,7 +14,7 @@ import { products } from "../data/products";
 import Navbar from "./NavBar";
 
 
-interface Product {
+export interface Product {
   id: number;
   name: string;
   price: number;
