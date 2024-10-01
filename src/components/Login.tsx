@@ -7,7 +7,12 @@ import {
   Stack,
   Text,
   Link,
+  Divider,
+  Flex,
 } from "@chakra-ui/react";
+import { FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import logo from "../assets/logo.png";
 
 const Login = () => {
   return (
@@ -19,6 +24,16 @@ const Login = () => {
       borderWidth="1px"
       borderRadius="lg"
     >
+      <img
+        src={logo}
+        alt="AgriConnect Logo"
+        style={{
+          display: "block",
+          margin: "0 auto",
+          // width: "100px",
+          marginBottom: "20px",
+        }}
+      />
       <Text fontSize="2xl" mb="4" textAlign="center">
         Login
       </Text>
@@ -37,6 +52,38 @@ const Login = () => {
           </Button>
         </Stack>
       </form>
+
+      <Flex align="center" mt="6" mb="4">
+        <Divider />
+        <Text px="2" fontSize="sm" color="gray.500" whiteSpace="nowrap">
+          Or Sign up with
+        </Text>
+        <Divider />
+      </Flex>
+
+      <Stack
+        direction={{ base: "column", md: "row" }}
+        spacing={4}
+        justify="center"
+      >
+        <Button
+          leftIcon={<FcGoogle />}
+          bg="#ccc"
+          color="black"
+          width={{ md: "200px" }}
+        >
+          Google
+        </Button>
+        <Button
+          leftIcon={<FaFacebook />}
+          colorScheme="facebook"
+          width={{ md: "200px" }}
+          // variant="outline"
+        >
+          Facebook
+        </Button>
+      </Stack>
+
       <Text mt="4" textAlign="center">
         Don't have an account?{" "}
         <Link color="teal.500" href="/signup">
