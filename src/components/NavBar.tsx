@@ -21,7 +21,7 @@ interface Props {
 
 const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
   return (
-    <Box>
+    <Box >
       {/* Responsive Stack */}
       <Stack
         direction={{ base: "column", md: "row" }} // Column on mobile, row on larger screens

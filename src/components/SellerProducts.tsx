@@ -33,11 +33,7 @@ const SellerProducts = () => {
   return (
     <Box p="5">
       <Text fontSize="2xl" mb="4">Manage Your Products</Text>
-      <ProductForm 
-        onSubmit={editingProduct ? updateProduct : addProduct} // Use update or add based on editing state
-        initialProduct={editingProduct} // Pass the product to edit, if any
-      />
-      <Text fontSize="xl" mt="8" mb="4">Your Products</Text>
+      <Text fontSize="2xl" mt="8" mb="4" textAlign="center">My Products</Text>
       <Grid
         templateColumns={{
           base: "1fr",
