@@ -1,7 +1,8 @@
 import BuyerDashboard from "./components/BuyerDashboard";
+import ProductDetail from "./components/Productdetail";
 
 function App() {
-  return <BuyerDashboard />;
+  return <ProductDetail />;
 }
 
 export default App;
