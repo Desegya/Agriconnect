@@ -1,9 +1,10 @@
 
+import BuyerDashboard from "./components/BuyerDashboard";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 function App() {
-  return <Login />;
+  return <BuyerDashboard />;
 }
 
 export default App;
