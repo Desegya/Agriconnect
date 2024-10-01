@@ -1,9 +1,11 @@
-import { Box, Text, Button, Stack } from "@chakra-ui/react";
+// src/components/Cart.tsx
+import { Box, Text, Button, Stack, Flex, Image } from "@chakra-ui/react";
 
 interface Product {
   id: number;
   name: string;
   price: number;
+  image: string; // Added image property for displaying product image
 }
 
 const Cart = ({
@@ -22,22 +24,36 @@ const Cart = ({
       <Text fontSize="xl" mb="4">
         Your Cart
       </Text>
-      <Stack spacing="4">
-        {cart.map((product) => (
-          <Box key={product.id} display="flex" justifyContent="space-between">
-            <Text>
-              {product.name} - ₦{product.price}
-            </Text>
-            <Button
-              size="sm"
-              colorScheme="red"
-              onClick={() => removeFromCart(product.id)}
-            >
-              Remove
-            </Button>
-          </Box>
-        ))}
-      </Stack>
+      {cart.length === 0 ? (
+        <Text>Your cart is empty.</Text>
+      ) : (
+        <Stack spacing="4">
+          {cart.map((product) => (
+            <Flex key={product.id} justifyContent="space-between" alignItems="center">
+              <Flex alignItems="center">
+                <Image
+                  src={product.image} // Use actual product image URL here
+                  alt={product.name}
+                  boxSize="50px" // Adjust image size as needed
+                  objectFit="cover"
+                  borderRadius="md"
+                  mr="4"
+                />
+                <Text>
+                  {product.name} - ₦{product.price}
+                </Text>
+              </Flex>
+              <Button
+                size="sm"
+                colorScheme="red"
+                onClick={() => removeFromCart(product.id)}
+              >
+                Remove
+              </Button>
+            </Flex>
+          ))}
+        </Stack>
+      )}
       <Text fontWeight="bold" mt="4">
         Total: ₦{totalPrice}
       </Text>

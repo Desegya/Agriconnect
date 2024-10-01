@@ -1,5 +1,4 @@
 // src/components/ProductDetail.tsx
-import React from "react";
 import { Box, Image, Text, Button, Flex } from "@chakra-ui/react";
 
 // Define the Product interface for props
@@ -13,12 +12,12 @@ interface Product {
 
 // Sample product data (you can replace this with actual data later)
 const sampleProduct: Product = {
-    id: 28,
-    name: "Appetizer - Asian Shrimp Roll",
-    price: 97,
-    description:
-      "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-    image: "http://dummyimage.com/171x100.png/5fa2dd/ffffff",
+  id: 28,
+  name: "Appetizer - Asian Shrimp Roll",
+  price: 97,
+  description:
+    "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.\n\nPraesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.\n\nCras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+  image: "http://dummyimage.com/171x100.png/5fa2dd/ffffff",
 };
 
 // Arrow function component for Product Detail
