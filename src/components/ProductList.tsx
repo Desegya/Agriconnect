@@ -1,4 +1,3 @@
-// src/components/ProductList.tsx
 import { useState } from "react";
 import {
   Box,
@@ -8,6 +7,7 @@ import {
   Button,
   Image,
   Flex,
+  HStack,
 } from "@chakra-ui/react";
 import { products } from "../data/products";
 import Navbar from "./NavBar";
@@ -20,16 +20,37 @@ export interface Product {
   image: string;
 }
 
-interface Props {
+const ProductList = ({
+  addToCart,
+}: {
   addToCart: (product: Product) => void;
-}
-
-const ProductList = ({ addToCart }: Props) => {
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12; // Change this value as needed
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Calculate total pages
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+  // Get current products to display
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  const handlePageChange = (direction: "next" | "prev") => {
+    if (direction === "next" && currentPage < totalPages) {
+      setCurrentPage((prev) => prev + 1);
+    } else if (direction === "prev" && currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
 
   return (
     <Box p="5">
@@ -43,7 +64,7 @@ const ProductList = ({ addToCart }: Props) => {
         gap={6}
         mt="4"
       >
-        {filteredProducts.map((product) => (
+        {currentProducts.map((product) => (
           <GridItem
             display="flex"
             flexDirection="column"
@@ -75,6 +96,25 @@ const ProductList = ({ addToCart }: Props) => {
           </GridItem>
         ))}
       </Grid>
+      
+      {/* Pagination Controls */}
+      <HStack spacing={4} mt={4} justify="right">
+        <Button
+          onClick={() => handlePageChange("prev")}
+          isDisabled={currentPage === 1}
+        >
+          Previous
+        </Button>
+        <Text whiteSpace="nowrap">
+          Page {currentPage} of {totalPages}
+        </Text>
+        <Button
+          onClick={() => handlePageChange("next")}
+          isDisabled={currentPage === totalPages}
+        >
+          Next
+        </Button>
+      </HStack>
     </Box>
   );
 };
