@@ -1,7 +1,7 @@
 // src/components/SellerProducts.tsx
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Box, Text, Button, Grid, GridItem, Flex, Image } from "@chakra-ui/react";
-import ProductForm from "./ProductForm"; // Import ProductForm for adding/updating products
+
 import { Product } from "./ProductList"; // Import Product interface
 
 const SellerProducts = () => {

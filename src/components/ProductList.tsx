@@ -8,11 +8,9 @@ import {
   Button,
   Image,
   Flex,
-
 } from "@chakra-ui/react";
 import { products } from "../data/products";
 import Navbar from "./NavBar";
-
 
 export interface Product {
   id: number;
@@ -22,11 +20,11 @@ export interface Product {
   image: string;
 }
 
-const ProductList = ({
-  addToCart,
-}: {
+interface Props {
   addToCart: (product: Product) => void;
-}) => {
+}
+
+const ProductList = ({ addToCart }: Props) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredProducts = products.filter((product) =>

@@ -76,7 +76,7 @@ const Login = () => {
         </Button>
         <Button
           leftIcon={<FaFacebook />}
-          colorScheme="facebook"
+          colorScheme="blue"
           width={{ md: "200px" }}
           // variant="outline"
         >

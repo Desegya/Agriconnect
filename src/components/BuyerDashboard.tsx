@@ -1,18 +1,22 @@
 // src/components/BuyerDashboard.tsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import ProductList from "./ProductList";
-import Cart from "./Cart";
 import OrderConfirmation from "./OrderConfirmation";
+import { Box, } from "@chakra-ui/react";
+
 
 interface Product {
   id: number;
   name: string;
   price: number;
+  image: string;
 }
 
 const BuyerDashboard = () => {
   const [cart, setCart] = useState<Product[]>([]);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -34,22 +38,18 @@ const BuyerDashboard = () => {
   };
 
   return (
-    <div>
+    <Box>
+    
+   
+
       {!orderConfirmed ? (
         <>
           <ProductList addToCart={addToCart} />
-          {cart.length > 0 && (
-            <Cart
-              cart={cart}
-              removeFromCart={removeFromCart}
-              confirmOrder={confirmOrder}
-            />
-          )}
         </>
       ) : (
         <OrderConfirmation finishOrder={finishOrder} />
       )}
-    </div>
+    </Box>
   );
 };
 

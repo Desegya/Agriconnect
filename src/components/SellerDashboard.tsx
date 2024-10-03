@@ -6,13 +6,14 @@ import {
   Flex,
   HStack,
   Stack,
-  Spacer,
+
   useBreakpointValue,
 } from "@chakra-ui/react";
 import SellerProducts from "./SellerProducts";
 import logo from "../assets/logo.png";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
+import { IoIosLogOut } from "react-icons/io";
 
 const SellerDashboard = () => {
   // Responsive header text size
@@ -38,6 +39,7 @@ const SellerDashboard = () => {
           <HStack spacing={4}>
             <IoNotificationsOutline fontSize="30px" />
             <VscAccount fontSize="30px" />
+            <IoIosLogOut fontSize="30px"/>
           </HStack>
         </Flex>
 
@@ -67,6 +69,10 @@ const SellerDashboard = () => {
               <VscAccount fontSize="30px" />
               <Text>Account</Text>
             </HStack>
+            <HStack>
+            <IoIosLogOut fontSize="30px"/>
+            <Text>Logout</Text>
+          </HStack>
           </HStack>
         </HStack>
 

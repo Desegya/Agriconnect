@@ -11,8 +11,10 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import { VscAccount } from "react-icons/vsc";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { BsCart3, BsSearch } from "react-icons/bs"; // Import BsSearch icon
 import logo from "../assets/logo.png";
+import { IoIosLogOut } from "react-icons/io";
 
 interface Props {
   searchTerm: string;
@@ -20,8 +22,10 @@ interface Props {
 }
 
 const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   return (
-    <Box >
+    <Box>
       {/* Responsive Stack */}
       <Stack
         direction={{ base: "column", md: "row" }} // Column on mobile, row on larger screens
@@ -39,7 +43,12 @@ const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
           <Image src={logo} alt="AgriConnect Logo" width="150px" />
           <HStack>
             <VscAccount fontSize="30px" />
-            <BsCart3 fontSize="30px" />
+            <BsCart3
+              fontSize="30px"
+              cursor="pointer" // Change cursor to pointer on hover
+              onClick={() => navigate("/cart")} // Click handler added
+            />
+            <IoIosLogOut fontSize="30px" onClick={() => navigate("/login")} />
           </HStack>
         </Flex>
 
@@ -62,13 +71,43 @@ const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
             />
           </InputGroup>
 
-          <HStack>
+          <HStack
+            cursor="pointer"
+            _hover={{
+              transform: "scale(1.1)", // Slightly increase the size on hover
+              transition: "transform 0.2s ease-in-out", // Smooth transition
+            }}
+          >
             <VscAccount fontSize="30px" />
             <Text>Account</Text>
           </HStack>
-          <HStack>
-            <BsCart3 fontSize="30px" />
+          <HStack
+            cursor="pointer"
+            _hover={{
+              transform: "scale(1.1)", // Slightly increase the size on hover
+              transition: "transform 0.2s ease-in-out", // Smooth transition
+            }}
+            onClick={() => navigate("/cart")}
+          >
+            {" "}
+            {/* Click handler for cart icon */}
+            <BsCart3
+              fontSize="30px"
+              cursor="pointer" // Change cursor to pointer on hover
+            />
             <Text>Cart</Text>
+          </HStack>
+          <HStack
+            onClick={() => navigate("/login")}
+            cursor="pointer" // Change cursor to pointer on hover
+            _hover={{
+              transform: "scale(1.1)", // Slightly increase the size on hover
+              transition: "transform 0.2s ease-in-out",
+              color: "red.500", // Smooth transition
+            }}
+          >
+            <IoIosLogOut fontSize="30px" />
+            <Text>Logout</Text>
           </HStack>
         </HStack>
 
