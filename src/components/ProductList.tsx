@@ -21,6 +21,14 @@ export interface Product {
   image: string;
 }
 
+// Helper function to truncate description
+const truncateDescription = (description: string, maxLength: number) => {
+  if (description.length > maxLength) {
+    return description.slice(0, maxLength) + "...";
+  }
+  return description;
+};
+
 const ProductList = ({
   addToCart,
 }: {
@@ -28,12 +36,12 @@ const ProductList = ({
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12; // Change this value as needed
+  const productsPerPage = 12;
 
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -68,20 +76,20 @@ const ProductList = ({
       >
         {currentProducts.map((product) => (
           <GridItem
-            display="flex"
-            flexDirection="column"
             key={product.id}
             borderWidth="1px"
-            p="4"
             borderRadius="md"
             boxShadow="md"
-            onClick={() => navigate(`/product/${product.id}`)}
             transition="transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease"
             _hover={{
-              transform: "scale(1.05)", // Scale up on hover
-              boxShadow: "lg", // Change box shadow on hover
-              // backgroundColor: "green.100", // Change background color on hover
+              transform: "scale(1.05)",
+              boxShadow: "lg",
+              // backgroundColor: "gray.100",
             }}
+            display="flex"
+            flexDirection="column"
+            p="4"
+            onClick={() => navigate(`/product/${product.id}`)}
           >
             <Image
               src={product.image}
@@ -92,12 +100,16 @@ const ProductList = ({
             />
             <Text fontSize="xl">{product.name}</Text>
             <Text>Price: ₦{product.price}</Text>
-            <Text>{product.description}</Text>
+            <Text>{truncateDescription(product.description, 100)}</Text>{" "}
+            {/* Truncated description */}
             <Flex mt="auto">
               <Button
                 colorScheme="teal"
                 mt="2"
-                onClick={() => addToCart(product)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  addToCart(product);
+                }}
               >
                 Add to Cart
               </Button>
