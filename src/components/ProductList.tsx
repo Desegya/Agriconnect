@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { products } from "../data/products";
 import Navbar from "./NavBar";
+import { useNavigate } from "react-router-dom";
 
 export interface Product {
   id: number;
@@ -32,6 +33,7 @@ const ProductList = ({
   const filteredProducts = products.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
@@ -73,6 +75,13 @@ const ProductList = ({
             p="4"
             borderRadius="md"
             boxShadow="md"
+            onClick={() => navigate(`/product/${product.id}`)}
+            transition="transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease"
+            _hover={{
+              transform: "scale(1.05)", // Scale up on hover
+              boxShadow: "lg", // Change box shadow on hover
+              // backgroundColor: "green.100", // Change background color on hover
+            }}
           >
             <Image
               src={product.image}
@@ -96,7 +105,7 @@ const ProductList = ({
           </GridItem>
         ))}
       </Grid>
-      
+
       {/* Pagination Controls */}
       <HStack spacing={4} mt={4} justify="right">
         <Button
