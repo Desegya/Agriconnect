@@ -42,7 +42,7 @@ const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
         >
           <Image src={logo} alt="AgriConnect Logo" width="150px" />
           <HStack>
-            <VscAccount fontSize="30px" />
+            <VscAccount fontSize="30px" onClick={() => navigate("/account")} />
             <BsCart3
               fontSize="30px"
               cursor="pointer" // Change cursor to pointer on hover
@@ -77,6 +77,7 @@ const Navbar = ({ searchTerm, setSearchTerm }: Props) => {
               transform: "scale(1.1)", // Slightly increase the size on hover
               transition: "transform 0.2s ease-in-out", // Smooth transition
             }}
+            onClick={() => navigate("/account")}
           >
             <VscAccount fontSize="30px" />
             <Text>Account</Text>

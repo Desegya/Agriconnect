@@ -3,8 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import BuyerDashboard from '../components/BuyerDashboard';
 import SellerDashboard from '../components/SellerDashboard';
 import ProductDetail from '../components/Productdetail';
-import Cart from '../components/Cart';
 import Login from '../components/Login';
+import Account from '../components/Account';
 
 
 
@@ -14,16 +14,12 @@ const router = createBrowserRouter([
     element: <BuyerDashboard />,
   },
   {
-    path: '/seller',
-    element: <SellerDashboard />,
+    path: "/account", // Define the route for the account page
+    element: <Account />,
   },
   {
-    path: '/cart',
-    element: <Cart cart={[]} removeFromCart={function (productId: number): void {
-        throw new Error('Function not implemented.');
-    } } confirmOrder={function (): void {
-        throw new Error('Function not implemented.');
-    } } />,
+    path: '/seller',
+    element: <SellerDashboard />,
   },
   {
     path: '/product/:id',
