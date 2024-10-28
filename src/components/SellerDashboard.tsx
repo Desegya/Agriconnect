@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import SellerProducts from "./SellerProducts";
 import ProductForm from "./ProductForm"; // Import ProductForm
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { VscAccount } from "react-icons/vsc";
 import { IoIosLogOut } from "react-icons/io";
