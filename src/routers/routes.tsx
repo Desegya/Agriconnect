@@ -7,10 +7,8 @@ import Login from "../components/Login";
 import Account from "../components/Account";
 
 import ProductDetail from "../components/ProductDetail";
-import ProductForm from "../components/ProductForm";
-import Signup from "../components/Signup";
 
-import Cart from "../components/Cart";
+import Signup from "../components/Signup";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +45,6 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
-
 ]);
 
 export default router;
