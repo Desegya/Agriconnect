@@ -18,7 +18,7 @@ import {
 import { FaFacebook } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 
 const Signup = () => {
   const [role, setRole] = useState("");

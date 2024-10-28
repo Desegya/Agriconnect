@@ -13,7 +13,7 @@ import {
 import { VscAccount } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import { BsCart3, BsSearch } from "react-icons/bs"; // Import BsSearch icon
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 import { IoIosLogOut } from "react-icons/io";
 
 interface Props {

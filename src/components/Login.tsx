@@ -11,7 +11,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { FormEvent, useState, useEffect } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/Logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 
