@@ -1,27 +1,50 @@
-// src/pages/Account.tsx
-import { Box, Heading, Text, Button, Stack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Stack, Image, HStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import photo from "../assets/photo.webp";
+
 
 const Account = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform logout logic here
-    // For example, clear user session or token, then navigate to login page
     navigate("/login");
   };
 
   return (
-    <Box p="5" maxW="md" mx="auto" borderWidth="1px" borderRadius="lg" boxShadow="md">
-      <Heading as="h1" size="xl" mb="4">
+    <Box
+      p="5"
+      maxW="md"
+      mx="auto"
+      marginTop="10px"
+      // borderWidth="1px"
+      // borderRadius="lg"
+      // boxShadow="md"
+    >
+      <Heading as="h1" size="xl" mb="4" textAlign="center" marginBottom="30px">
         My Account
       </Heading>
-      <Stack spacing={4}>
-        <Text fontSize="lg">Username: [User's Username]</Text>
-        <Text fontSize="lg">Email: [User's Email]</Text>
-        <Text fontSize="lg">Joined: [Date Joined]</Text>
+      <Stack
+        direction={{ base: "column", md: "row" }} // Column on mobile, row on tablets and larger screens
+        spacing={6}
+        align="start"
+      >
+        {/* User's Picture */}
+        <Image
+          borderRadius="full"
+          boxSize="120px"
+          src={photo}
+          alt="User Picture"
+          mx={{ base: "auto", md: "0" }} // Center image on mobile
+        />
+        {/* Account Details */}
+        <Stack spacing={4}>
+          <Text fontSize="lg">Username: farmerjohn01</Text>
+          <Text fontSize="lg">Full name: John Doe</Text>
+          <Text fontSize="lg">Email: johndoe@gmail.com</Text>
+          <Text fontSize="lg">Date joined: 13-06-2006</Text>
+        </Stack>
       </Stack>
-      <Button mt="4" colorScheme="red" onClick={handleLogout}>
+      <Button mt="6" colorScheme="red" width="full" onClick={handleLogout}>
         Logout
       </Button>
     </Box>

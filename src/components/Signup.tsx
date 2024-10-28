@@ -15,12 +15,14 @@ import {
   Divider,
   Flex,
 } from "@chakra-ui/react";
-import { FaFacebook } from "react-icons/fa"; // Import Google and Facebook icons
+import { FaFacebook } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import logo from "../assets/logo.png"; // Adjust the path based on your folder structure
+import logo from "../assets/logo.png";
 
 const Signup = () => {
-  const [role, setRole] = useState(""); // Set initial role to an empty string
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -96,7 +98,13 @@ const Signup = () => {
             </FormControl>
           </GridItem>
         </Grid>
-        <Button type="submit" colorScheme="teal" width="full" mt="4">
+        <Button
+          type="submit"
+          colorScheme="teal"
+          width="full"
+          mt="4"
+          onClick={() => navigate("/")}
+        >
           Sign Up
         </Button>
       </form>
@@ -126,7 +134,6 @@ const Signup = () => {
           leftIcon={<FaFacebook />}
           colorScheme="blue"
           width={{ md: "200px" }}
-          // variant="outline"
         >
           Facebook
         </Button>

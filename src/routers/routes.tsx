@@ -6,16 +6,22 @@ import SellerDashboard from "../components/SellerDashboard";
 import Login from "../components/Login";
 import Account from "../components/Account";
 
-import ProductDetail from "../components/Productdetail";
+import ProductDetail from "../components/ProductDetail";
 import ProductForm from "../components/ProductForm";
 import Signup from "../components/Signup";
 import ReportGenerator from "../components/ReportGenerator";
+import Cart from "../components/Cart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <BuyerDashboard />,
   },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+
   {
     path: "/account",
     element: <Account />,

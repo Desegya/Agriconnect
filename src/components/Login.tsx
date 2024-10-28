@@ -10,11 +10,17 @@ import {
   Divider,
   Flex,
 } from "@chakra-ui/react";
-import { FaFacebook } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
+import { FormEvent, useState, useEffect } from "react";
 import logo from "../assets/logo.png";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  
+
   return (
     <Box
       width="400px"
@@ -30,23 +36,41 @@ const Login = () => {
         style={{
           display: "block",
           margin: "0 auto",
-          // width: "100px",
           marginBottom: "20px",
         }}
       />
       <Text fontSize="2xl" mb="4" textAlign="center">
         Login
       </Text>
-      <form>
+      
+      {/* Form for login */}
+      <form >
         <Stack spacing={4}>
+          {error && (
+            <Text color="red.500" textAlign="center">
+              {error}
+            </Text>
+          )}
           <FormControl isRequired>
             <FormLabel>Email</FormLabel>
-            <Input type="email" placeholder="Enter your email" />
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </FormControl>
           <FormControl isRequired>
             <FormLabel>Password</FormLabel>
-            <Input type="password" placeholder="Enter your password" />
+            <Input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </FormControl>
+          
+          {/* Submit button */}
           <Button type="submit" colorScheme="teal" width="full">
             Login
           </Button>
@@ -56,7 +80,7 @@ const Login = () => {
       <Flex align="center" mt="6" mb="4">
         <Divider />
         <Text px="2" fontSize="sm" color="gray.500" whiteSpace="nowrap">
-          Or Sign up with
+          Or Sign in with
         </Text>
         <Divider />
       </Flex>
@@ -78,7 +102,6 @@ const Login = () => {
           leftIcon={<FaFacebook />}
           colorScheme="blue"
           width={{ md: "200px" }}
-          // variant="outline"
         >
           Facebook
         </Button>

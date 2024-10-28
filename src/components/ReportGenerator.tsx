@@ -40,7 +40,7 @@ import {
   
   const ReportGenerator = () => {
     const [reportType, setReportType] = useState("");
-    const [reportData, setReportData] = useState<any[]>([]);
+    const [reportData, setReportData] = useState<T[]>([]);
     const navigate = useNavigate();
   
     const handleGenerateReport = () => {

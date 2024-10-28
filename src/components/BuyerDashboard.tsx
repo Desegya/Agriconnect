@@ -16,7 +16,7 @@ interface Product {
 const BuyerDashboard = () => {
   const [cart, setCart] = useState<Product[]>([]);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   const addToCart = (product: Product) => {
     setCart((prevCart) => [...prevCart, product]);
@@ -39,9 +39,6 @@ const BuyerDashboard = () => {
 
   return (
     <Box>
-    
-   
-
       {!orderConfirmed ? (
         <>
           <ProductList addToCart={addToCart} />
