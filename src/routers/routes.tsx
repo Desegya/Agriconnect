@@ -2,12 +2,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import BuyerDashboard from "../components/BuyerDashboard";
 import SellerDashboard from "../components/SellerDashboard";
-
 import Login from "../components/Login";
 import Account from "../components/Account";
-
-import ProductDetail from "../components/ProductDetail";
-
+// import ProductDetail from "../components/ProductDetail";
 import Signup from "../components/Signup";
 
 const router = createBrowserRouter([
@@ -29,10 +26,10 @@ const router = createBrowserRouter([
     path: "/seller",
     element: <SellerDashboard />,
   },
-  {
-    path: "/product/:id",
-    element: <ProductDetail />,
-  },
+  // {
+  //   path: "/product/:id",
+  //   element: <ProductDetail />,
+  // },
   // {
   //   path: "/add-product",
   //   element: <ProductForm />,
