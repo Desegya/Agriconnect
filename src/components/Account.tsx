@@ -16,9 +16,7 @@ const Account = () => {
       maxW="md"
       mx="auto"
       marginTop="10px"
-      // borderWidth="1px"
-      // borderRadius="lg"
-      // boxShadow="md"
+
     >
       <Heading as="h1" size="xl" mb="4" textAlign="center" marginBottom="30px">
         My Account
