@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Stack, Image, HStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Stack, Image } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import photo from "../assets/photo.webp";
 

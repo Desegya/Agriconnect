@@ -169,9 +169,6 @@ const Signup = () => {
                 </option>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
-                <option value="admin" disabled>
-                  Admin (requires approval)
-                </option>
               </Select>
             </FormControl>
           </GridItem>
